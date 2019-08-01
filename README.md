@@ -61,3 +61,5 @@ Jira использует компилирующий обработчик шаб
 * Заблокировать доступ к эндпоинту ```/secure/admin/SendBulkMail!default.jspa```
 
 ```Всем удачи!```
+
+https://codeby.net/threads/remote-code-execution-rce-v-jira-cve-2019-11581.68602/
